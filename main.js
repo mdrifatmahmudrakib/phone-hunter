@@ -3,6 +3,8 @@ const searchPhone = () => {
     const searchText = searchField.value;
     searchField.value = "";
 
+
+    // error handling
     const errorMsg = document.getElementById('error-result');
     const errorempty = document.getElementById('error-empty');
     const searchResult = document.getElementById('search-result');
@@ -24,7 +26,7 @@ const searchPhone = () => {
 
 
 };
-
+// Display item after search result
 const displayPhone = phones => {
     console.log(phones);
     const searchResult = document.getElementById('search-result');
@@ -44,13 +46,17 @@ const displayPhone = phones => {
             const div = document.createElement('div');
             div.classList.add('col');
 
+            // dynamic Div for search result
             div.innerHTML = `
-        <div class="card h-100">
-            <img src="${phone.image}" class="card-img-top w-50" alt="...">
-                <div class="card-body">
-            <h5 class="card-title">${phone.phone_name}</h5>
-            <p class="card-text ">${phone.brand}</p>
-            <button onclick="loadPhoneDetails('${phone.slug}')" class="btn btn-primary" type="button">View Details</button>
+        <div class="card h-100 pt-3 shadow-lg p-3 bg-body rounded">
+            <img src="${phone.image}" class="card-img-top w-50 mx-auto" alt="...">
+                <div class="card-body mx-auto">
+            <h5 class="card-title text-center">${phone.phone_name}</h5>
+            <p class="card-text text-center ">${phone.brand}</p>
+        
+                </div>
+                <div class="mx-auto">
+                <button onclick="loadPhoneDetails('${phone.slug}')" class="btn btn-primary" type="button">View Details</button>
                 </div>
         </div>`;
             searchResult.appendChild(div);
@@ -77,42 +83,35 @@ const displayPhoneDetails = phone => {
     const div = document.createElement('div');
     div.classList.add('col');
 
-
+    // dynamic Div for each product 
 
     div.innerHTML = `
-    <div class="card h-100">
-
+    
+    <div class="card h-100 mt-4 shadow-lg p-3 mb-5 bg-body rounded">
+    <h2 class="text-center"><b>${phone.name}</b></h2>
+    <img src="${phone.image}" class="card-img-top w-50 mx-auto" alt="...">
         <div class="card-body">
-
-
-        <h3>Name:${phone.name}</h3>
-        <h6>Brand:${phone.brand}</h6>
-        <img src="${phone.image}" class="card-img-top w-50" alt="...">
-        <h4>Specifications</h4><br>
-    
-    
-        <h5>Mainfeatures:</h5>
-    
-        <h6>Chipset:${phone.mainFeatures.chipSet}</h6>
-        <h6>Displaysize:${phone.mainFeatures.displaySize}</h6>
-        <h6>Memory:${phone.mainFeatures.memory}</h6>
-        <h6>sensors:${phone.mainFeatures.sensors}</h6>
-        <h6>storage:${phone.mainFeatures.storage}</h6><br>
+        <h4 class="text-center"><b>Specifications</b></h4>
+        <h5>Mainfeatures</h5>
+        <h6><strong>Chipset:</strong> ${phone.mainFeatures.chipSet}</h6>
+        <h6><strong>Displaysize:</strong> ${phone.mainFeatures.displaySize}</h6>
+        <h6><strong>Memory:</strong> ${phone.mainFeatures.memory}</h6>
+        <h6><strong>Sensors:</strong> ${phone.mainFeatures.sensors}</h6>
+        <h6>
+        <strong>Storage:</strong>
+        ${phone.mainFeatures.storage}</h6><br>
     
         <h5>Others</h5>
-        <h6>Bluetooth:${phone.others ? phone.others.Bluetooth : "None"}</h6>
-        <h6>GPS:${phone.others ? phone.others.GPS : "None"}</h6>
-        <h6>NFC:${phone.others ? phone.others.NFC : "None"}</h6>
-        <h6>Radio:${phone.others ? phone.others.Radio : "None"}</h6>
-        <h6>USB:${phone.others ? phone.others.USB : "None"}</h6>
-        <h6>WLAN:${phone.others ? phone.others.WLAN : "None"}</h6>
+        <h6><strong>Bluetooth:</strong>
+        ${phone.others ? phone.others.Bluetooth : "No"}</h6>
+        <h6>
+        <strong>GPS:</strong> ${phone.others ? phone.others.GPS : "No"}</h6>
+        <h6><strong>NFC:</strong> ${phone.others ? phone.others.NFC : "No"}</h6>
+        <h6><strong>Radio:</strong> ${phone.others ? phone.others.Radio : "No"}</h6>
+        <h6><strong>USB:</strong> ${phone.others ? phone.others.USB : "No"}</h6>
+        <h6><strong>WLAN:</strong> ${phone.others ? phone.others.WLAN : "No"}</h6>
     
-        <h6>releaseDate:${phone.releaseDate ? phone.releaseDate : "Not Yet Lunched "}</h6>
-
-
-
-        
-
+        <h6><strong>Release date:</strong> ${phone.releaseDate ? phone.releaseDate : "Date not Found "}</h6>
 
         </div>
     </div>`;
