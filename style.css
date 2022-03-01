@@ -1,4 +1,6 @@
 #error-result {
     display: none;
 }
- 
+ #error-empty{
+    display: none;
+ }

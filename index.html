@@ -20,25 +20,30 @@
 <body>
 
 
-    <!-- Input filed start  -->
+    <section class="container">
+        <!-- Input filed start  -->
 
-    <h2 class="text-center">Find Your Favorite Phone</h2>
-    <div class="input-group mb-3 text-center mx-auto w-50">
-        <input id="search-field" type="text" class="form-control" placeholder="Enter Phone Name" aria-label="Phone Name"
-            aria-describedby="button-addon2">
-        <button onclick="searchPhone()" class="btn btn-outline-secondary" type="button"
-            id="button-search">Search</button>
-    </div>
+        <h2 class="text-center">Find Your Favorite Phone</h2>
+        <div class="input-group mb-3 text-center mx-auto w-50">
+            <input id="search-field" type="text" class="form-control" placeholder="Enter Phone Name"
+                aria-label="Phone Name" aria-describedby="button-addon2">
+            <button onclick="searchPhone()" class="btn btn-outline-secondary" type="button"
+                id="button-search">Search</button>
+        </div>
 
-    <!-- Input filed End  -->
+        <!-- Input filed End  -->
 
-    <!-- #error result -->
-    <h4 id="error-result" class="text-danger w-50 mx-auto text-center">Phone not available</h4>
+        <!-- #error result -->
+        <h4 id="error-result" class="text-danger w-50 mx-auto text-center">Phone not Available</h4>
+
+        <h4 id="error-empty" class="text-danger w-50 mx-auto text-center">Please write Something</h4>
 
 
-    <!-- display phone full details -->
-    <div id="phone-details" class="w-50 mx-auto">
-        <!-- <div class=" col">
+
+
+        <!-- display phone full details -->
+        <div id="phone-details" class="my-2 col-lg-6 col-sm-12 mx-auto ">
+            <!-- <div class=" col">
             <div class="card h-100">
 
                 <div class="card-body">
@@ -50,13 +55,13 @@
             </div>
         </div> -->
 
-    </div>
+        </div>
 
 
 
-    <!-- Display Phone result-->
-    <div id="search-result" class="row row-cols-1 row-cols-md-3 g-4 mx-auto">
-        <!-- <div class=" col">
+        <!-- Display Phone result-->
+        <div id="search-result" class="row row-cols-1 row-cols-md-3 g-4 mx-auto">
+            <!-- <div class=" col">
         <div class="card h-100">
             <img src="..." class="card-img-top" alt="...">
             <div class="card-body">
@@ -68,7 +73,12 @@
         </div>
     </div> -->
 
-    </div>
+        </div>
+
+    </section>
+
+
+
 
 
 

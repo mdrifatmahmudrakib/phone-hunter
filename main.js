@@ -2,10 +2,19 @@ const searchPhone = () => {
     const searchField = document.getElementById('search-field');
     const searchText = searchField.value;
     searchField.value = "";
+
+    const errorMsg = document.getElementById('error-result');
+    const errorempty = document.getElementById('error-empty');
+    const searchResult = document.getElementById('search-result');
+    const phoneDetails = document.getElementById('phone-details');
     if (searchText == '') {
-        alert('PLease Enter phone Name')
+        phoneDetails.textContent = '';
+        searchResult.textContent = '';
+        errorMsg.style.display = 'none';
+        errorempty.style.display = 'block';
     }
     else {
+        errorempty.style.display = 'none';
         const url = `https://openapi.programming-hero.com/api/phones?search=${searchText}`;
 
         fetch(url)
@@ -20,6 +29,10 @@ const displayPhone = phones => {
     console.log(phones);
     const searchResult = document.getElementById('search-result');
     searchResult.textContent = '';
+
+    const phoneDetails = document.getElementById('phone-details');
+
+    phoneDetails.textContent = '';
 
     const errorMsg = document.getElementById('error-result');
     if (phones.length == 0) {
@@ -64,26 +77,47 @@ const displayPhoneDetails = phone => {
     const div = document.createElement('div');
     div.classList.add('col');
 
+
+
     div.innerHTML = `
     <div class="card h-100">
 
         <div class="card-body">
-        <img src="${phone.image}" class="card-img-top w-50" alt="...">
-        <h5 class="card-title"><strong>Brand:</strong> ${phone.brand}</h5>
-        
-        <h5 class="card-title"><strong>Chipset:</strong> ${phone.mainFeatures.chipSet}</h5>
-        <h5 class="card-title"><strong>Displaysize:</strong> ${phone.mainFeatures.displaySize}</h5>
-        <h5 class="card-title"><strong>Memory:</strong> ${phone.mainFeatures.memory}</h5>
-        <h5 class="card-title"><strong>Storage:</strong> ${phone.mainFeatures.storage}</h5>
-        <h5 class="card-title"><strong>Sensors:</strong> ${phone.mainFeatures.sensors}</h5>
 
-        <h5 class="card-title"><strong>others:</strong> ${phone.others ? phone.others : "not found"}</h5>
-        <h5 class="card-title"><strong>ReleaseDate:</strong> ${phone.releaseDate ? phone.releaseDate : "Not Yet Lunched "}</h5>
+
+        <h3>Name:${phone.name}</h3>
+        <h6>Brand:${phone.brand}</h6>
+        <img src="${phone.image}" class="card-img-top w-50" alt="...">
+        <h4>Specifications</h4><br>
+    
+    
+        <h5>Mainfeatures:</h5>
+    
+        <h6>Chipset:${phone.mainFeatures.chipSet}</h6>
+        <h6>Displaysize:${phone.mainFeatures.displaySize}</h6>
+        <h6>Memory:${phone.mainFeatures.memory}</h6>
+        <h6>sensors:${phone.mainFeatures.sensors}</h6>
+        <h6>storage:${phone.mainFeatures.storage}</h6><br>
+    
+        <h5>Others</h5>
+        <h6>Bluetooth:${phone.others ? phone.others.Bluetooth : "None"}</h6>
+        <h6>GPS:${phone.others ? phone.others.GPS : "None"}</h6>
+        <h6>NFC:${phone.others ? phone.others.NFC : "None"}</h6>
+        <h6>Radio:${phone.others ? phone.others.Radio : "None"}</h6>
+        <h6>USB:${phone.others ? phone.others.USB : "None"}</h6>
+        <h6>WLAN:${phone.others ? phone.others.WLAN : "None"}</h6>
+    
+        <h6>releaseDate:${phone.releaseDate ? phone.releaseDate : "Not Yet Lunched "}</h6>
+
+
+
+        
 
 
         </div>
     </div>`;
     phoneDetails.appendChild(div);
+
 
 
 }
