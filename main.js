@@ -10,7 +10,7 @@ const searchPhone = () => {
 
         fetch(url)
             .then(res => res.json())
-            .then(data => displayPhone(data.data))
+            .then(data => displayPhone(data.data.slice(0, 20)))
     }
 
 
