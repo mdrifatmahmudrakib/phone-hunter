@@ -88,7 +88,7 @@ const displayPhoneDetails = phone => {
     div.innerHTML = `
     
     <div class="card h-100 mt-4 shadow-lg p-3 mb-5 bg-body rounded">
-    <h2 class="text-center"><b>${phone.name}</b></h2>
+    <h2 class="text-center "><b>${phone.name}</b></h2>
     <img src="${phone.image}" class="card-img-top w-50 mx-auto" alt="...">
         <div class="card-body">
         <h4 class="text-center"><b>Specifications</b></h4>
